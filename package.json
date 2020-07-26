@@ -1,0 +1,27 @@
+{
+  "name": "nodegenius",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syam22587/nodegenius.git"
+  },
+  "author": "Syam Voleti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syam22587/nodegenius/issues"
+  },
+  "homepage": "https://github.com/syam22587/nodegenius#readme",
+  "dependencies": {
+    "mongoose": "^5.9.25",
+    "skv_plugin": "^1.0.2",
+    "underscore": "^1.10.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.11.1"
+  }
+}
