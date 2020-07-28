@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/syam22587/nodegenius#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.1.1",
     "mongoose": "^5.9.25",
     "skv_plugin": "^1.0.2",
     "underscore": "^1.10.2"
