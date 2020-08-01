@@ -563,8 +563,127 @@ Read more at https://hapi.dev/module/joi/
 ## 12- Handling HTTP PUT Requests
 
 app.put("/app/courses/:id" , (res,req) => {
-  // look up the course
+// look up the course
 
-  //if not exist return 404 error
-  
+//if not exist return 404 error
+
+}).
+
+## 13- Handling HTTP DELETE Request
+
+app.delete("/app/courses/:id" , (res,req) => {
+// look up the course
+
+//if not exist return 404 error
+
+// delete code
+
 })
+
+## RECAP - 4th Chapter
+
+Building RESTful APIs with Express
+So, in this section, you learned that:
+
+- REST defines a set of conventions for creating HTTP services:
+- POST: to create a resource
+- PUT: to update it
+- GET: to read it
+- DELETE: to delete it
+- Express is a simple, minimalistic and lightweight framework for building web
+  servers.
+  // Build a web server
+  const express = require(‘express’);
+  const app = express();
+  // Creating a course
+  app.post(‘/api/courses’, (req, res) => {
+  // Create the course and return the course object
+  resn.send(course);
+  });
+  // Getting all the courses
+  app.get(‘/api/courses’, (req, res) => {
+  // To read query string parameters (?sortBy=name)
+  const sortBy = req.query.sortBy;
+  // Return the coursesres.send(courses);
+  });
+  // Getting a single course
+  app.get(‘/api/courses/:id’, (req, res) => {
+  const courseId = req.params.id;
+  // Lookup the course
+  // If not found, return 404
+  res.status(404).send(‘Course not found.’);
+  // Else, return the course object
+  res.send(course);
+  });
+  // Updating a course
+  app.put(‘/api/courses/:id’, (req, res) => {
+  // If course not found, return 404, otherwise update it
+  // and return the updated object.
+  });
+  // Deleting a course
+  app.delete(‘/api/courses/:id’, (req, res) => {
+  // If course not found, return 404, otherwise delete it
+  // and return the deleted object.
+  });
+  // Listen on port 3000
+  app.listen(3000, () => console.log(‘Listening...’));- We use Nodemon to watch for changes in files and automatically restart the
+  node process.
+- We can use environment variables to store various settings for an application. To
+  read an environment variable, we use process.env.
+  // Reading the port from an environment variable
+  const port = process.env.PORT || 3000;
+  app.listen(port);
+- You should never trust data sent by the client. Always validate! Use Joi package
+  to perform input validation.
+
+## 01-08-2020
+
+---
+
+## EXPRESS ADVANCED CONCEPTS
+
+1. MIDDLEWARE FUNCTIONS
+
+Express framework provides bunch of middleware functions.
+
+All routes handles in express framework are such examples
+
+ex.,
+app.get('/somelink', (req, res) => {
+
+})
+
+example flow:
+request ---> (some function ) --> (some function) ---> response
+
+Explanation, the above is called as request processing engine.
+middleware functions are used to process and terminate the request response or it passes to next functions
+
+app.use(express.json()) ;
+in this example express.json() is a middleware function.
+
+2. Creating a custom middleware function
+
+# index.js
+
+app.use(function(req,res, next) {
+console.log("Authenticating");
+next()
+})
+
+app.use(function(req,res, nextnext) {
+console.log("logging");
+nextnext()
+})
+
+note: if you dont provide next() function in a middleware it hangs
+
+And it executes in the order it written in the file 
+so console will giv e"Authenticating " and "logging " messages in order
+
+4. Built in middleware functions
+
+express.json() // parses the body into json
+express.urlencoded() // parses the url into key value pairs(submits the forml like values )
+express.use(express.static('public')) // this reads all the resources from the "public" folder, any resource under public can be directly used without mentioning it further. 
+

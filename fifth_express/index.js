@@ -1,7 +1,17 @@
 const express = require("express");
-const { result } = require("underscore");
 const app = express();
 app.use(express.json());
+app.use(express.static('public'))
+
+app.use(function (req, res, next) {
+  console.log("testing middleware");
+  next();
+});
+
+app.use(function (req, res, next) {
+  console.log("testing middleware 123 ");
+  next();
+});
 
 const courses = [
   { id: 1, name: "a" },
