@@ -18,7 +18,7 @@
   "homepage": "https://github.com/syam22587/nodegenius#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "joi": "^17.1.1",
     "mongoose": "^5.9.25",
     "skv_plugin": "^1.0.2",
